@@ -18,6 +18,7 @@ class Line:
 class Client:
     name: str
     country: str = ""
+    vat_number: str | None = None
 
 
 @dataclass
@@ -35,7 +36,11 @@ class Invoice:
 
 
 def parse_invoice(data: dict) -> Invoice:
-    client = Client(name=data["client"]["name"], country=data["client"].get("country", ""))
+    client = Client(
+        name=data["client"]["name"],
+        country=data["client"].get("country", ""),
+        vat_number=data["client"].get("vat_number"),
+    )
     lines = [
         Line(
             description=row["description"],
