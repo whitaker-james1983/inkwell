@@ -12,7 +12,7 @@ from inkwell.render import render_invoice
 def _build(args: argparse.Namespace) -> int:
     with open(args.invoice, encoding="utf-8") as fh:
         data = json.load(fh)
-    invoice = parse_invoice(data)
+    invoice = parse_invoice(data, seller_country=args.seller_country)
     html = render_invoice(invoice)
     out = args.out or "invoice.html"
     with open(out, "w", encoding="utf-8") as fh:
@@ -34,6 +34,7 @@ def main(argv: list[str] | None = None) -> int:
 
     build = sub.add_parser("build", help="build an HTML invoice from JSON")
     build.add_argument("invoice", help="path to the invoice JSON")
+    build.add_argument("--seller-country", default="NL")
     build.add_argument("--out", help="output path (default: invoice.html)")
     build.set_defaults(func=_build)
 

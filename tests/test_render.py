@@ -5,7 +5,7 @@ DATA = {
     "number": "2026-0002",
     "issue_date": "2026-01-12",
     "client": {"name": "Acme & Sons"},
-    "lines": [{"description": "Workshop", "quantity": 1, "unit_price": 1400}],
+    "lines": [{"description": "Workshop", "quantity": 1, "unit_price": 1400, "vat_rate": 0.21}],
 }
 
 

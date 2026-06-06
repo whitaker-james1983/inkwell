@@ -1,10 +1,10 @@
 {
-  "number": "2026-0001",
-  "issue_date": "2026-01-05",
-  "client": {"name": "Acme BV"},
+  "number": "2026-0119",
+  "issue_date": "2026-06-21",
+  "client": {"name": "Acme BV", "country": "NL"},
   "currency": "EUR",
   "lines": [
-    {"description": "Consulting (day)", "quantity": 3, "unit_price": 850},
-    {"description": "Expenses", "quantity": 1, "unit_price": 120.5}
+    {"description": "Consulting (day)", "quantity": 3, "unit_price": 850, "vat_rate": 0.21},
+    {"description": "Expenses", "quantity": 1, "unit_price": 120.5, "vat_rate": 0.21}
   ]
 }

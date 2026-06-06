@@ -6,8 +6,8 @@ DATA = {
     "client": {"name": "Acme BV"},
     "currency": "EUR",
     "lines": [
-        {"description": "Consulting (day)", "quantity": 3, "unit_price": 850},
-        {"description": "Expenses", "quantity": 1, "unit_price": 120.5},
+        {"description": "Consulting (day)", "quantity": 3, "unit_price": 850, "vat_rate": 0.21},
+        {"description": "Expenses", "quantity": 1, "unit_price": 120.5, "vat_rate": 0.21},
     ],
 }
 
