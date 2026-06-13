@@ -3,16 +3,22 @@
 import argparse
 import json
 import platform
+import sys
 
 from inkwell import __version__
 from inkwell.model import parse_invoice
 from inkwell.render import render_invoice
+from inkwell.support import crash_note
 
 
 def _build(args: argparse.Namespace) -> int:
     with open(args.invoice, encoding="utf-8") as fh:
         data = json.load(fh)
-    invoice = parse_invoice(data, seller_country=args.seller_country)
+    try:
+        invoice = parse_invoice(data, seller_country=args.seller_country)
+    except Exception:
+        print(f"[support] {crash_note()}", file=sys.stderr)
+        raise
     html = render_invoice(invoice)
     out = args.out or "invoice.html"
     with open(out, "w", encoding="utf-8") as fh:
