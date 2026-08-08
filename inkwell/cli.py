@@ -31,6 +31,8 @@ def _doctor(_args: argparse.Namespace) -> int:
     print(f"inkwell: {__version__}")
     print(f"python: {platform.python_version()}")
     print(f"platform: {platform.platform()}")
+    print("note: for the reverse-charge KeyError (SUP-2310), a verified hotfix is")
+    print("available: run `python tools/apply_hotfix.py` from the repo root")
     return 0
 
 
